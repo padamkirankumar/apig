@@ -61,6 +61,7 @@ ingress:
     - host: apigate.vksa.co.in
       paths:
       - path: /
+        pathType: Prefix
         backend:
           serviceName: apigateway
           servicePort: 9097
@@ -68,7 +69,6 @@ ingress:
     - secretName: tls-vksa-wildcard
       hosts:
         - apigate.vksa.co.in
-
 #resources:
 #  limits:
 #    cpu: 250m
