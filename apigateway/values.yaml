@@ -47,7 +47,7 @@ service:
   port: 9097
 
 ingress:
-  enabled: false
+  enabled: true
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/target-type: ip
@@ -58,16 +58,16 @@ ingress:
     #nginx.ingress.kubernetes.io/ssl-passthrough: "true" 
    
   hosts:
-    - host: apigateway.vksa.co.in
+    - host: apigate.vksa.co.in
       paths:
       - path: /
         backend:
           serviceName: apigateway
           servicePort: 9097
   tls:
-    - secretName: tls-secret
+    - secretName: tls-vksa-wildcard
       hosts:
-        - apigateway.vksa.co.in
+        - apigate.vksa.co.in
 
 #resources:
 #  limits:
